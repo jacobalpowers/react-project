@@ -1,0 +1,41 @@
+/* Structure */
+:root {
+  --primary-color: #98C9A3;
+  --secondary-color: #606C38;
+  --nav-color: #283618;
+  --nav-text-color: #BC6C25;
+}
+body {
+  background-color: var(--primary-color);
+  margin: 0;
+}
+h1, h2, h3 {
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+h1 {
+  background-color: cadetblue;
+  padding: 20px;
+  border: solid 1px var(--primary-color);
+}
+
+/* Nav Bar */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+#nav-bar {
+  
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  background-color: var(--nav-color);
+  padding: 20px;
+}
+.nav-item {
+  flex: 1;
+  text-decoration: none;
+  color: var(--nav-text-color);
+}

@@ -1,0 +1,54 @@
+/* Main Content */
+#main-content {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+}
+
+/* Form */
+form {
+    text-align: left;
+    width: 60%;
+    padding: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    background-color: var(--nav-color);
+    border-radius: 20px;
+}
+
+form label {
+    font-size: 28px;
+    display: block;
+    color: var(--nav-text-color);
+}
+
+form input {
+    align-items: center;
+    width: 40%;
+}
+form textarea {
+    width: 80%;
+    height: 100px;
+}
+form button {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+}
+
+
+/* Typography */
+
+
+
+
+/* Larger Resolutions */
+@media only screen and (min-width: 720px) {
+    
+}

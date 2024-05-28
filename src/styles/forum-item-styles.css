@@ -1,0 +1,70 @@
+/* Main Content */
+#main-content {
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    background-color: var(--primary-color);
+}
+#content-container {
+    background-color: var(--secondary-color);
+    width: 100%;
+}
+#header {
+    text-align: left;
+    position: relative;
+    border-bottom: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    justify-content: center;
+}
+#forum-title {
+    font-size: 24px;
+    margin: 0;
+    margin-left: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 70%;
+}
+#extra-info {
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+}
+#extra-info p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Comment Body */
+#comments-body {
+    margin-top: 50px;
+    padding-bottom: 2%;
+}
+.forum-comment {
+    width: 90%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+#poster-name {
+    color: var(--nav-text-color);
+    font-size: 20px;
+}
+
+
+
+/* Typography */
+
+
+
+
+/* Larger Resolutions */
+@media only screen and (min-width: 720px) {
+
+}
