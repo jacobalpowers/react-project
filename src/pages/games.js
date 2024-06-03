@@ -97,6 +97,7 @@ const Games = () => {
                                 releaseDate={gameContainer.releaseDate}
                                 ranking={gameContainer.rank}
                                 price={gameContainer.price}
+                                image={gameContainer.image}
                             />
                         ))}
                     </div>
