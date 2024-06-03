@@ -27,9 +27,7 @@ nav {
   z-index: 5;
 }
 #nav-bar {
-  
-  display: flex;
-  flex-direction: row;
+  flex-direction: column;
   text-align: center;
   background-color: var(--nav-color);
   padding: 20px;
@@ -38,4 +36,43 @@ nav {
   flex: 1;
   text-decoration: none;
   color: var(--nav-text-color);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}
+.flex {
+  display: flex;
+}
+
+#toggle {
+  left: 5px;
+  background: #5d878c;
+  width: fit-content;
+  padding: 1px 3px;
+  margin-bottom: 2px;
+}
+
+#toggle div {
+  width: 25px;
+  height: 2px;
+  background: white;
+  margin: 6px 0;
+}
+
+/* Larger Resolutions */
+@media only screen and (min-width: 720px) {
+  #nav-bar {
+    display: flex;
+    flex-direction: row;
+  }
+  #toggle {
+    display: none;
+  }
+  .nav-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
