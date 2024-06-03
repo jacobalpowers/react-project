@@ -1,6 +1,20 @@
 import styles from '../styles/main-styles.css'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import GameContainer from '../components/game-container';
 
 const Home = () => {
+    const [gameContainers, setGameContainer] = useState([]);
+
+
+    useEffect(() => {
+        (async () => {
+            const response = await axios.get("https://jacobalpowers.github.io/Summer2024/projects/part5/games.json");
+            setGameContainer(response.data);
+        })();
+    }, []);
+
+
     return (
     <>
         <content>
@@ -26,7 +40,16 @@ const Home = () => {
                 </div>
                 <div id="right-side" class="large-screen">
                     <h2>Highest Rated</h2>
-                    <div id="high-ratings"></div>
+                    <div id="high-ratings">
+                        {gameContainers.map((gameContainer) => (
+                            <GameContainer
+                                title={gameContainer.title}
+                                releaseDate={gameContainer.releaseDate}
+                                ranking={gameContainer.rank}
+                                price={gameContainer.price}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </content>
