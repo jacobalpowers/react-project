@@ -1,10 +1,11 @@
+#home-page {
 /* Main Content */
 #divider {
     display: flex;
     flex-direction: column;
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 5%;
+    margin-top: 2%;
     border-radius: 10px;
     background-color: var(--secondary-color);
 }
@@ -26,15 +27,32 @@
     aspect-ratio: 16/9;
     border-radius: 10px;
 }
+#forward-arrow {
+    background-color: var(--primary-color);
+    position: absolute;
+    right: 5px;
+    top: 40%;
+    padding: 10px;
+    user-select: none;
+}
+#backward-arrow {
+    background-color: var(--primary-color);
+    position: absolute;
+    left: 5px;
+    top: 40%;
+    padding: 10px;
+    user-select: none;
+}
 #featured h2 {
     text-align: left;
     position: absolute;
     font-size: 18px;
     left: 0;
-    bottom: 0;
+    bottom: 3px;
     background-color: green;
     padding: 1%;
     border-radius: 0 10px 0 10px;
+    margin: 0;
 }
 
 #the-word {
@@ -119,4 +137,5 @@
         border-radius: 10px;
         background-color: var(--secondary-color);
     }
+}
 }

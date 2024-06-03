@@ -1,3 +1,4 @@
+#game-item-page {
 /*Main Content*/
 
 #divider {
@@ -5,7 +6,7 @@
     flex-direction: column;
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 5%;
+    margin-top: 2%;
     background-color: var(--secondary-color);
 }
 
@@ -84,4 +85,5 @@
     #basic-text {
         text-align: left;
     }
+}
 }

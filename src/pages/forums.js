@@ -3,7 +3,7 @@ import styles from '../styles/forums-styles.css'
 const Forums = () => {
     return (
         <>
-        <content>
+        <content id="forum-page">
             <div id="main-content">
                 <h2 id="title">Forum Posts</h2>
                 <div id="divider">

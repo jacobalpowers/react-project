@@ -3,7 +3,7 @@ import styles from '../styles/forum-item-styles.css'
 const ForumItem = () => {
     return (
         <>
-        <content>
+        <content id="forum-item-page">
             <div id="main-content">
                 <div id="content-container">
                     <div id="header">

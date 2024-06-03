@@ -1,3 +1,4 @@
+#forum-page {
 /*Main Content*/
 #main-content {
     margin-top: 2%;
@@ -101,4 +102,5 @@ li {
     #filter-sort {
         display: flex;
     }
+}
 }

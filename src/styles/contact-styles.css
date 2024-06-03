@@ -1,8 +1,9 @@
+#contact-page {
 /* Main Content */
 #main-content {
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 5%;
+    margin-top: 2%;
     padding-top: 1%;
     padding-bottom: 1%;
     border-radius: 10px;
@@ -43,6 +44,7 @@ form button {
 }
 
 
+
 /* Typography */
 
 
@@ -51,4 +53,5 @@ form button {
 /* Larger Resolutions */
 @media only screen and (min-width: 720px) {
     
+}
 }

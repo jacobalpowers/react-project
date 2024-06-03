@@ -1,3 +1,4 @@
+#forum-item-page {
 /* Main Content */
 #main-content {
     margin-top: 2%;
@@ -67,4 +68,5 @@
 /* Larger Resolutions */
 @media only screen and (min-width: 720px) {
 
+}
 }

@@ -3,7 +3,7 @@ import styles from '../styles/contact-styles.css'
 const Contact = () => {
     return (
     <>
-    <content>
+    <content id="contact-page">
             <div id="main-content">
                 <h1>Contact Us!</h1>
                     <form

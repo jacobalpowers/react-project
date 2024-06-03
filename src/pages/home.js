@@ -5,23 +5,40 @@ import GameContainer from '../components/game-container';
 
 const Home = () => {
     const [gameContainers, setGameContainer] = useState([]);
+    const [index, setIndex] = useState(0);
+    const [loaded, setLoaded] = useState(false);
+
+    const slideForward = () => {
+        setIndex(index === gameContainers.length - 1 ? 0 : index + 1);
+    }
+    const slideBackward = () => {
+        setIndex(index === 0 ? gameContainers.length - 1 : index - 1);
+    }
 
 
     useEffect(() => {
         (async () => {
-            const response = await axios.get("https://jacobalpowers.github.io/Summer2024/projects/part5/games.json");
+            const response = await axios.get("https://board-at-home-backend.onrender.com/api/games");
             setGameContainer(response.data);
+            setLoaded(true);
         })();
     }, []);
 
 
     return (
     <>
-        <content>
+        <content id="home-page">
             <div id="divider">
                 <div id="left-side" class="large-screen">
                     <div id="featured">
-                        <img src="images/gloomhaven.webp" />
+                        {!loaded && (
+                            <img src=""></img>
+                        )}
+                        {loaded && (
+                            <img src={`https://board-at-home-backend.onrender.com/images/`+gameContainers[index].image} alt={gameContainers[index].title}/>
+                        )}
+                        <p id='forward-arrow' onClick={slideForward}>&gt;</p>
+                        <p id='backward-arrow' onClick={slideBackward}>&lt;</p>
                         <h2>Featured Picks</h2>
                     </div>
                     <div id="the-word">

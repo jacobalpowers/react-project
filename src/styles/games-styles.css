@@ -1,3 +1,4 @@
+#games-page {
 /*Main Content*/
 
 #divider {
@@ -5,7 +6,7 @@
     flex-direction: row;
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 5%;
+    margin-top: 2%;
     border-radius: 10px;
     background-color: var(--secondary-color);
 }
@@ -154,4 +155,5 @@ form label {
         text-align: center;
         font-size: 16px;
     }
+}
 }
