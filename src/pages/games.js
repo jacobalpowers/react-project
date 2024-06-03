@@ -1,6 +1,21 @@
 import styles from '../styles/games-styles.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import GameContainer from '../components/game-container';
 
 const Games = () => {
+    const [gameContainers, setGameContainer] = useState([]);
+
+
+    useEffect(() => {
+        (async () => {
+            const response = await axios.get("https://jacobalpowers.github.io/Summer2024/projects/part5/games.json");
+            setGameContainer(response.data);
+        })();
+    }, []);
+
+
+
     return (
     <>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
@@ -75,7 +90,16 @@ const Games = () => {
                 </div>
                 <div id="main-items">
                     <p id="add-item">+</p>
-                    <div id="item-list"></div>
+                    <div id="item-list">
+                        {gameContainers.map((gameContainer) => (
+                            <GameContainer
+                                title={gameContainer.title}
+                                releaseDate={gameContainer.releaseDate}
+                                ranking={gameContainer.rank}
+                                price={gameContainer.price}
+                            />
+                        ))}
+                    </div>
                     <div id="page-changer">
                         <button id="prev">Previous</button>
                         <p id="current-page">1/10</p>
