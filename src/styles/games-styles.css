@@ -99,37 +99,6 @@ li {
     background-color: var(--primary-color);
     border-radius: 10px;
 }
-
-/* Modal */
-.w3-container {
-    background-color: var(--secondary-color);
-}
-form {
-    margin: 0 2%;
-}
-  
-form label {
-    display: block;
-}
-#modal-divider {
-    display: flex;
-    flex-direction: row;
-}
-#image-interaction {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    background-color: grey;
-}
-#image-interaction img {
-    padding: 10px;
-    width: 200px;
-    height: 300px;
-}
-#text-interaction {
-    margin-top: auto;
-    margin-left: 5%;
-}
 /* Typography */
 
 

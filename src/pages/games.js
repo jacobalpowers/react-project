@@ -2,66 +2,36 @@ import styles from '../styles/games-styles.css';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import GameContainer from '../components/game-container';
+import AddDialog from '../components/add-dialog';
 
 const Games = () => {
     const [gameContainers, setGameContainer] = useState([]);
+    const [formOpen, setFormOpen] = useState(false);
+    //const api = "https://board-at-home-backend.onrender.com/api/games";
+    const api = "http://localhost:3001/api/games";
 
 
     useEffect(() => {
         (async () => {
-            const response = await axios.get("https://jacobalpowers.github.io/Summer2024/projects/part5/games.json");
+            const response = await axios.get(api);
             setGameContainer(response.data);
         })();
     }, []);
 
+    const openForm = () => {
+        setFormOpen(true);
+    };
 
+    const closeForm = () => {
+        setFormOpen(false);
+    }
 
     return (
     <>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
         <content id="games-page">
-            <div id="id01" class="w3-modal">
-                <div class="w3-modal-content">
-                    <div class="w3-container">
-                        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                        <section id="main-modal-content">
-                            <form id="new-item">
-                                <div id="modal-divider">
-                                    <div id="text-interaction">
-                                        <p>
-                                            <label for="game-name">Game Name:</label>
-                                            <input
-                                            type="text"
-                                            id="game-name"
-                                            name="game-name"
-                                            required
-                                            minlength="3"
-                                        />
-                                        </p>
-                                        <p>
-                                            <label for="release-date">Release Date:</label>
-                                            <input type="number" id="release-date" step="1" required />
-                                        </p>
-                                        <p>
-                                            <label for="game-rank">Rank: </label>
-                                            <input type="number" id="game-rank" step="1" required />
-                                        </p>
-                                        <p>
-                                            <label for="price">Price:</label>
-                                            <input type="text" id="price" required />
-                                        </p>
-                                        <p>
-                                            <button type="submit">Submit</button>
-                                        </p>
-                                    </div>
-                                </div>
-                                
-                                
-                            </form>
-                        </section>
-                    </div>
-                </div>
-            </div>
+            {formOpen ? (
+                <AddDialog closeForm={closeForm}/>
+            ) : ("")}
             <div id="divider">
                 <div id="filter">
                     <ul id="genres">
@@ -89,7 +59,7 @@ const Games = () => {
                     </ul>
                 </div>
                 <div id="main-items">
-                    <p id="add-item">+</p>
+                    <p id="add-item" onClick={openForm}>+</p>
                     <div id="item-list">
                         {gameContainers.map((gameContainer) => (
                             <GameContainer
