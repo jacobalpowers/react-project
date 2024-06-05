@@ -65,7 +65,7 @@ const Games = () => {
                             <GameContainer
                                 title={gameContainer.title}
                                 releaseDate={gameContainer.releaseDate}
-                                ranking={gameContainer.rank}
+                                rank={gameContainer.rank}
                                 price={gameContainer.price}
                                 image={gameContainer.image}
                             />

@@ -1,38 +1,39 @@
 import styles from "../styles/dialog-styles.css";
 import React, { useState } from "react";
 
-const AddDialog = (props) => {
-    const [inputs, setInputs] = useState({});
+const EditDialog = (props) => {
+    const imgSrc = `https://board-at-home-backend.onrender.com/images/${props.image}`;
+    const [inputs, setInputs] = useState({
+        _id: props._id,
+        title: props.title,
+        rank: props.rank,
+        price: props.price,
+        releaseDate: props.releaseDate,
+    });
     const [result, setResult] = useState("");
-    //const api = "https://board-at-home-backend.onrender.com/api/games";
-    const api = "http://localhost:3001/api/games";
+    //const api = "https://board-at-home-backend.onrender.com/api/games/";
+    const api = "http://localhost:3001/api/games/";
 
 
     const onSubmit = async (event) => {
         event.preventDefault();
         setResult("Sending...");
-        
         const formData = new FormData(event.target);
 
-        const response = await fetch(api, {
-            method:"POST",
+        const response = await fetch(`${api}${props._id}`, {
+            method:"PUT",
             body: formData,
         });
 
         if (response.status == 200) {
-            setResult("House Successfully Added");
+            setResult("Game Successfully Updated");
             event.target.reset(); //reset your form fields
+            props.editGame(await response.json());
             props.closeDialog();
         } else {
-            console.log("Error adding game", response);
+            console.log("Error editing game", response);
             setResult(response.message);
         }
-    }
-
-    const textChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs((values) => ({ ...values, [name]: value}));
     }
 
     const imageChange = (event) => {
@@ -47,14 +48,12 @@ const AddDialog = (props) => {
         <div id="id01" class="w3-modal">
             <div class="w3-modal-content">
                 <div class="w3-container">
-                    <span class="w3-button w3-display-topright" onClick={props.closeForm}>&times;</span>
+                    <span class="w3-button w3-display-topright" onClick={props.closeDialog}>&times;</span>
                     <section id="main-modal-content">
                         <form id="new-item" onSubmit={onSubmit}>
                             <div id="modal-divider">
                                 <div id="image-interaction">
-                                    <img id="img-preview" src={
-                                        inputs.image != null ? URL.createObjectURL(inputs.image) : ""
-                                    }/>
+                                    <img id="img-preview" src={props.image != null ? imgSrc : ""}/>
                                     <label for="file-name">Find File:</label>
                                     <input
                                         type="file"
@@ -71,22 +70,22 @@ const AddDialog = (props) => {
                                         type="text"
                                         id="game-name"
                                         name="title"
+                                        value={inputs.title}
                                         required
                                         minlength="3"
-                                        onChange={textChange}
                                     />
                                     </p>
                                     <p>
                                         <label for="release-date">Release Date:</label>
-                                        <input type="number" id="release-date" name="releaseDate" step="1" required onChange={textChange} />
+                                        <input type="number" id="release-date" name="releaseDate" step="1" value={inputs.releaseDate} required />
                                     </p>
                                     <p>
                                         <label for="game-rank">Rank: </label>
-                                        <input type="number" id="game-rank" name="rank" step="1" required onChange={textChange} />
+                                        <input type="number" id="game-rank" name="rank" step="1" value={inputs.rank} required />
                                     </p>
                                     <p>
                                         <label for="price">Price:</label>
-                                        <input type="text" id="price" name="price" required onChange={textChange} />
+                                        <input type="text" id="price" name="price" value={inputs.price} required />
                                     </p>
                                     <p>
                                         <button type="submit">Submit</button>
@@ -101,6 +100,6 @@ const AddDialog = (props) => {
         </div>
         </>
     )
-};
+}
 
-export default AddDialog;
+export default EditDialog;
