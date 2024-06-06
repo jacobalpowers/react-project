@@ -11,8 +11,8 @@ const EditDialog = (props) => {
         releaseDate: props.releaseDate,
     });
     const [result, setResult] = useState("");
-    //const api = "https://board-at-home-backend.onrender.com/api/games/";
-    const api = "http://localhost:3001/api/games/";
+    const api = "https://board-at-home-backend.onrender.com/api/games/";
+    //const api = "http://localhost:3001/api/games/";
 
 
     const onSubmit = async (event) => {
