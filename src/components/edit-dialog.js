@@ -2,18 +2,18 @@ import styles from "../styles/dialog-styles.css";
 import React, { useState } from "react";
 
 const EditDialog = (props) => {
-    const imgSrc = `https://board-at-home-backend.onrender.com/images/${props.image}`;
     const [inputs, setInputs] = useState({
         _id: props._id,
         title: props.title,
         rank: props.rank,
         price: props.price,
         releaseDate: props.releaseDate,
+        image: props.image,
     });
     const [result, setResult] = useState("");
     const api = "https://board-at-home-backend.onrender.com/api/games/";
     //const api = "http://localhost:3001/api/games/";
-
+    const imgSrc = `https://board-at-home-backend.onrender.com/images/${inputs.image}`;
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -36,6 +36,12 @@ const EditDialog = (props) => {
         }
     }
 
+    const textChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs((values) => ({ ...values, [name]: value}));
+    }
+
     const imageChange = (event) => {
         const name = event.target.name;
         const value = event.target.files[0];
@@ -53,7 +59,7 @@ const EditDialog = (props) => {
                         <form id="new-item" onSubmit={onSubmit}>
                             <div id="modal-divider">
                                 <div id="image-interaction">
-                                    <img id="img-preview" src={props.image != null ? imgSrc : ""}/>
+                                    <img id="img-preview" src={inputs.image != null ? imgSrc : ""}/>
                                     <label for="file-name">Find File:</label>
                                     <input
                                         type="file"
