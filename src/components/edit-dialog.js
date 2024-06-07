@@ -14,13 +14,15 @@ const EditDialog = (props) => {
     const api = "https://board-at-home-backend.onrender.com/api/games/";
     //const api = "http://localhost:3001/api/games/";
     const imgSrc = `https://board-at-home-backend.onrender.com/images/${inputs.image}`;
+    
 
     const onSubmit = async (event) => {
         event.preventDefault();
         setResult("Sending...");
+        console.log(inputs._id);
         const formData = new FormData(event.target);
 
-        const response = await fetch(`${api}${props._id}`, {
+        const response = await fetch(`${api}${inputs._id}`, {
             method:"PUT",
             body: formData,
         });
@@ -83,15 +85,15 @@ const EditDialog = (props) => {
                                     </p>
                                     <p>
                                         <label for="release-date">Release Date:</label>
-                                        <input type="number" id="release-date" name="releaseDate" step="1" value={inputs.releaseDate} required />
+                                        <input type="number" id="release-date" name="releaseDate" step="1" value={inputs.releaseDate} required onChange={textChange} />
                                     </p>
                                     <p>
                                         <label for="game-rank">Rank: </label>
-                                        <input type="number" id="game-rank" name="rank" step="1" value={inputs.rank} required />
+                                        <input type="number" id="game-rank" name="rank" step="1" value={inputs.rank} required onChange={textChange}/>
                                     </p>
                                     <p>
                                         <label for="price">Price:</label>
-                                        <input type="text" id="price" name="price" value={inputs.price} required />
+                                        <input type="text" id="price" name="price" value={inputs.price} required onChange={textChange}/>
                                     </p>
                                     <p>
                                         <button type="submit">Submit</button>

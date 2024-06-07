@@ -68,6 +68,7 @@ const Games = () => {
                                 rank={gameContainer.rank}
                                 price={gameContainer.price}
                                 image={gameContainer.image}
+                                _id={gameContainer._id}
                             />
                         ))}
                     </div>
