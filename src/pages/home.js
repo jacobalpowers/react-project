@@ -7,8 +7,8 @@ const Home = () => {
     const [gameContainers, setGameContainer] = useState([]);
     const [index, setIndex] = useState(0);
     const [loaded, setLoaded] = useState(false);
-    const api = "https://board-at-home-backend.onrender.com/api/games";
-    //const api = "http://localhost:3001/api/games";
+    //const api = "https://board-at-home-backend.onrender.com/api/games";
+    const api = "http://localhost:3001/api/games";
 
     const slideForward = () => {
         setIndex(index === gameContainers.length - 1 ? 0 : index + 1);

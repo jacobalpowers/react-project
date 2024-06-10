@@ -4,8 +4,8 @@ import React, { useState } from "react";
 const AddDialog = (props) => {
     const [inputs, setInputs] = useState({});
     const [result, setResult] = useState("");
-    const api = "https://board-at-home-backend.onrender.com/api/games";
-    //const api = "http://localhost:3001/api/games";
+    //const api = "https://board-at-home-backend.onrender.com/api/games";
+    const api = "http://localhost:3001/api/games";
 
 
     const onSubmit = async (event) => {
@@ -22,11 +22,12 @@ const AddDialog = (props) => {
         if (response.status == 200) {
             setResult("House Successfully Added");
             event.target.reset(); //reset your form fields
-            props.closeDialog();
+            props.closeForm();
         } else {
             console.log("Error adding game", response);
             setResult(response.message);
         }
+        window.location.reload();
     }
 
     const textChange = (event) => {

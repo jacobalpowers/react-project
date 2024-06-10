@@ -11,9 +11,10 @@ const EditDialog = (props) => {
         image: props.image,
     });
     const [result, setResult] = useState("");
-    const api = "https://board-at-home-backend.onrender.com/api/games/";
-    //const api = "http://localhost:3001/api/games/";
-    const imgSrc = `https://board-at-home-backend.onrender.com/images/${inputs.image}`;
+    //const baseAddress = "https://board-at-home-backend.onrender.com";
+    const baseAddress = `http://localhost:3001`;
+    const api = `${baseAddress}/api/games/`;
+    const imgSrc = `${baseAddress}/images/${inputs.image}`;
     
 
     const onSubmit = async (event) => {
@@ -36,6 +37,7 @@ const EditDialog = (props) => {
             console.log("Error editing game", response);
             setResult(response.message);
         }
+        window.location.reload();
     }
 
     const textChange = (event) => {

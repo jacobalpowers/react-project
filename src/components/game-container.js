@@ -4,7 +4,8 @@ import EditDialog from "./edit-dialog";
 const GameContainer = (gameContainer) => {
     const [showEditDialog, setShowEditDialog] = useState(false);
     const [gameItem, setGameItem] = useState(gameContainer);
-    const imgSrc = `https://board-at-home-backend.onrender.com/images/${gameContainer.image}`;
+    //const imgSrc = `https://board-at-home-backend.onrender.com/images/${gameContainer.image}`;
+    const imgSrc = `http://localhost:3001/images/${gameContainer.image}`;
 
     const displayEdit = () => {
         setShowEditDialog(!showEditDialog);
@@ -34,7 +35,7 @@ const GameContainer = (gameContainer) => {
                 <div id="text-section">
                     <p>{gameItem.title}</p>
                     <p>{gameItem.releaseDate}</p>
-                    <p>Rank: {gameItem.ranking}</p>
+                    <p>Rank: {gameItem.rank}</p>
                     <p>${gameItem.price}</p>
                 </div>
 

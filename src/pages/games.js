@@ -7,8 +7,8 @@ import AddDialog from '../components/add-dialog';
 const Games = () => {
     const [gameContainers, setGameContainer] = useState([]);
     const [formOpen, setFormOpen] = useState(false);
-    const api = "https://board-at-home-backend.onrender.com/api/games";
-    //const api = "http://localhost:3001/api/games";
+    //const api = "https://board-at-home-backend.onrender.com/api/games";
+    const api = "http://localhost:3001/api/games";
 
 
     useEffect(() => {
