@@ -20,14 +20,14 @@ const EditDialog = (props) => {
     const onSubmit = async (event) => {
         event.preventDefault();
         setResult("Sending...");
-        console.log(inputs._id);
+        
         const formData = new FormData(event.target);
-
+        console.log(...formData);
         const response = await fetch(`${api}${inputs._id}`, {
             method:"PUT",
             body: formData,
         });
-
+        
         if (response.status == 200) {
             setResult("Game Successfully Updated");
             event.target.reset(); //reset your form fields
@@ -35,6 +35,21 @@ const EditDialog = (props) => {
             props.closeDialog();
         } else {
             console.log("Error editing game", response);
+            setResult(response.message);
+        }
+        window.location.reload();
+    }
+
+    const onDelete = async (event) => {
+        const response = await fetch(`${api}${inputs._id}`, {
+            method:"DELETE",
+        });
+
+        if (response.status == 200) {
+            setResult("Game Successfully Deleted");
+            props.closeDialog();
+        } else {
+            console.log("Error Deleting Game", response);
             setResult(response.message);
         }
         window.location.reload();
@@ -83,6 +98,7 @@ const EditDialog = (props) => {
                                         value={inputs.title}
                                         required
                                         minlength="3"
+                                        onChange={textChange}
                                     />
                                     </p>
                                     <p>
@@ -103,6 +119,9 @@ const EditDialog = (props) => {
                                 </div>
                             </div>
                         </form>
+                        <p>
+                            <button onClick={onDelete}>Delete</button>
+                        </p>
                         <p>{result}</p>
                     </section>
                 </div>
