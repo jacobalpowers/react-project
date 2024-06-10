@@ -4,8 +4,8 @@ import EditDialog from "./edit-dialog";
 const GameContainer = (gameContainer) => {
     const [showEditDialog, setShowEditDialog] = useState(false);
     const [gameItem, setGameItem] = useState(gameContainer);
-    //const imgSrc = `https://board-at-home-backend.onrender.com/images/${gameContainer.image}`;
-    const imgSrc = `http://localhost:3001/images/${gameContainer.image}`;
+    const imgSrc = `https://board-at-home-backend.onrender.com/images/${gameContainer.image}`;
+    //const imgSrc = `http://localhost:3001/images/${gameContainer.image}`;
 
     const displayEdit = () => {
         setShowEditDialog(!showEditDialog);

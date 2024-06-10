@@ -11,8 +11,8 @@ const EditDialog = (props) => {
         image: props.image,
     });
     const [result, setResult] = useState("");
-    //const baseAddress = "https://board-at-home-backend.onrender.com";
-    const baseAddress = `http://localhost:3001`;
+    const baseAddress = "https://board-at-home-backend.onrender.com";
+    //const baseAddress = `http://localhost:3001`;
     const api = `${baseAddress}/api/games/`;
     const imgSrc = `${baseAddress}/images/${inputs.image}`;
     
